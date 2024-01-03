@@ -36,10 +36,9 @@ class connexioncontroller extends Controller
                     'password' => ['required'],
                 ]);
                 if (Auth::attempt($credentials)) {
-
                     $request->session()->regenerate();
 
-                    return redirect()->intended('dashboard');
+                    return redirect()->intended('/');
 
                 }
 
@@ -65,5 +64,9 @@ class connexioncontroller extends Controller
 
        return redirect()->route('connexion')->with('success','Vous etes bien inscrit. connecter vous');
 
+    }
+    public function Logout() {
+        auth()->logout();
+        return redirect('/');
     }
 }

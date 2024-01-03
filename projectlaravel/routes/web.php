@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\connexioncontroller;
+use App\Http\Middleware\Authentificate;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,7 @@ Route::get('/', function () {
     return view('acceuil');
 })->name('acceuil');
 
+Route::get('/deconnexion',[connexioncontroller::class, 'Logout']);
 // Route::get('/connexion', function () {
 //     return view('login');
 // })->name('connexion');
@@ -32,10 +34,12 @@ Route::post('/inscription', [connexioncontroller::class, 'showRegistrationForm']
 
 
 
-Route::get('/connexion', [connexioncontroller::class, 'login'])->name('login');
+Route::get('/connexion', [connexioncontroller::class, 'login'])->name('connexion');
 Route::post('/connexion', [connexioncontroller::class, 'showLoginForm']);
 
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+
+

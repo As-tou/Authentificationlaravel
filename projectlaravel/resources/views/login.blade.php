@@ -23,11 +23,12 @@
 <body>
     <div class="container">
         <div class ="row">
-            <form action="/connexion" method="POST">
-                @csrf
+
           <div class="m-5" style="margin-top:20px">
             <h4 class="text-center">Connexion</h4>
             <hr>
+            <form action="/connexion" method="POST">
+                @csrf
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="text" class ="form-control" placeholder="Entrer votre adresse email" name="email" value="">
